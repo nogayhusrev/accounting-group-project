@@ -11,7 +11,7 @@
             <div class="container-fluid dashboard-content">
                 <div class="ecommerce-widget">
                     <header class="panel-heading text-center">
-                        <h3 class="panel-title">Create New Company</h3>
+                        <h3 class="panel-title">Create New Client/Vendor</h3>
                     </header>
                     <div class="row">
                         <div class="col-12">
@@ -19,22 +19,45 @@
                                 <div class="card-content">
                                     <div class="card-body">
                                         <div class="tab-content">
-                                            <div class="tab-pane fade mt-2 show active" id="account" role="tabpanel"
+                                            <div class="tab-pane fade show active" id="account" role="tabpanel"
                                                  aria-labelledby="account-tab">
-                                                <form th:action="@{/companies/create}"
-                                                      th:method="post" th:object="${newCompany}">
-                                                    <div class="row">
-                                                        <div class="col-12 col-md-8">
+                                                <form th:action="@{/clientVendors/create}"
+                                                      th:method="post" th:object="${newClientVendor}">
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-12 col-md-4">
                                                             <div class="form-group">
                                                                 <div class="controls">
-                                                                    <label>Title</label>
-                                                                    <input type="text" th:field="*{title}"
-                                                                           placeholder="Title"
+                                                                    <label>Client/Vendor Name</label>
+                                                                    <input type="text" th:field="*{clientVendorName}"
+                                                                           placeholder="Client/Vendor Name"
                                                                            class="form-control">
-                                                                    <div th:if="${#fields.hasErrors('title')}">
+                                                                    <div th:if="${#fields.hasErrors('clientVendorName')}">
                                                                         <ul>
                                                                             <li class="validation"
-                                                                                th:each="err : ${#fields.errors('title')}"
+                                                                                th:each="err : ${#fields.errors('clientVendorName')}"
+                                                                                th:text="${err}"></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-4">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label>Type</label>
+                                                                    <select id="clientVendorType" class="form-control"
+                                                                            th:field="*{clientVendorType}">
+                                                                        <option th:if="${clientVendorTypes.size() > 1}"
+                                                                                th:value="''" th:text="'Select'"
+                                                                                selected></option>
+                                                                        <option th:each="clientVendorType:${clientVendorTypes}"
+                                                                                th:value="${clientVendorType}"
+                                                                                th:text="${clientVendorType.value}"></option>
+                                                                    </select>
+                                                                    <div th:if="${#fields.hasErrors('clientVendorType')}">
+                                                                        <ul>
+                                                                            <li class="validation"
+                                                                                th:each="err : ${#fields.errors('clientVendorType')}"
                                                                                 th:text="${err}"></li>
                                                                         </ul>
                                                                     </div>
@@ -42,7 +65,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
+                                                    <div class="row justify-content-center">
                                                         <div class="col-12 col-md-4">
                                                             <div class="form-group">
                                                                 <div class="controls">
@@ -78,7 +101,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
+                                                    <div class="row justify-content-center">
                                                         <div class="col-12 col-md-4">
                                                             <div class="form-group">
                                                                 <div class="controls">
@@ -116,7 +139,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
+                                                    <div class="row justify-content-center">
                                                         <div class="col-12 col-md-4">
                                                             <div class="form-group">
                                                                 <div class="controls">
@@ -124,11 +147,13 @@
                                                                     <input type="text" th:field="*{address.city}"
                                                                            placeholder="City"
                                                                            class="form-control">
-                                                                    <ul>
-                                                                        <li class="validation"
-                                                                            th:each="err : ${#fields.errors('address.city')}"
-                                                                            th:text="${err}"></li>
-                                                                    </ul>
+                                                                    <div th:if="${#fields.hasErrors('address.city')}">
+                                                                        <ul>
+                                                                            <li class="validation"
+                                                                                th:each="err : ${#fields.errors('address.city')}"
+                                                                                th:text="${err}"></li>
+                                                                        </ul>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -139,16 +164,18 @@
                                                                     <input type="text" th:field="*{address.zipCode}"
                                                                            placeholder="Zip Code"
                                                                            class="form-control">
-                                                                    <ul>
-                                                                        <li class="validation"
-                                                                            th:each="err : ${#fields.errors('address.zipCode')}"
-                                                                            th:text="${err}"></li>
-                                                                    </ul>
+                                                                    <div th:if="${#fields.hasErrors('address.zipCode')}">
+                                                                        <ul>
+                                                                            <li class="validation"
+                                                                                th:each="err : ${#fields.errors('address.zipCode')}"
+                                                                                th:text="${err}"></li>
+                                                                        </ul>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
+                                                    <div class="row justify-content-center">
                                                         <div class="col-12 col-md-4">
                                                             <div class="form-group">
                                                                 <div class="controls">
@@ -156,11 +183,13 @@
                                                                     <input type="text" th:field="*{address.state}"
                                                                            placeholder="State"
                                                                            class="form-control">
-                                                                    <ul>
-                                                                        <li class="validation"
-                                                                            th:each="err : ${#fields.errors('address.state')}"
-                                                                            th:text="${err}"></li>
-                                                                    </ul>
+                                                                    <div th:if="${#fields.hasErrors('address.state')}">
+                                                                        <ul>
+                                                                            <li class="validation"
+                                                                                th:each="err : ${#fields.errors('address.state')}"
+                                                                                th:text="${err}"></li>
+                                                                        </ul>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -174,11 +203,13 @@
                                                                                 th:value="${country}"
                                                                                 th:text="${country}"></option>
                                                                     </select>
-                                                                    <ul>
-                                                                        <li class="validation"
-                                                                            th:each="err : ${#fields.errors('address.country')}"
-                                                                            th:text="${err}"></li>
-                                                                    </ul>
+                                                                    <div th:if="${#fields.hasErrors('address.country')}">
+                                                                        <ul>
+                                                                            <li class="validation"
+                                                                                th:each="err : ${#fields.errors('address.country')}"
+                                                                                th:text="${err}"></li>
+                                                                        </ul>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -204,7 +235,8 @@
                             <form>
                                 <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-right">
                                     <a id="companylistlink" class="btn bg-dark text-light mb-1"
-                                       th:href="@{/companies/list}"><i class="fa fa-list mr-1"></i>Company List</a>
+                                       th:href="@{/clientVendors/list}"><i class="fa fa-list mr-1"></i>Client/Vendor
+                                        List</a>
                                 </div>
                             </form>
                         </div>
