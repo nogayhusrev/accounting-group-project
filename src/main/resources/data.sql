@@ -130,7 +130,7 @@ values
 ('2022-11-21 00:00', 3, 'false', '2022-11-21 00:00', 3, '2022-11-21', 'S-005', 'SALES', 'AWAITING_APPROVAL', 6, 3);
 
 insert into invoice_products(insert_date_time, insert_user_id, is_deleted, last_update_date_time, last_update_user_id,
-                             price,quantity, remaining_quantity, tax, profit_loss, invoice_id, product_id)
+                             price,quantity, remaining_qty, tax, profit_loss, invoice_id, product_id)
 values
 -- COMPANY-2 / Green Tech
 ('2022-09-15 00:00', 2, 'false', '2022-09-15 00:00', 2, 250, 5, 3, 10, 0, 1, 1),     --purchase APPROVED
