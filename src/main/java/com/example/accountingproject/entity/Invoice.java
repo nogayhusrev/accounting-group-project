@@ -2,6 +2,7 @@ package com.example.accountingproject.entity;
 
 
 import com.example.accountingproject.enums.InvoiceStatus;
+import com.example.accountingproject.enums.InvoiceType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
