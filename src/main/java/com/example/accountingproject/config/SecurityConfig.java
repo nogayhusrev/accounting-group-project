@@ -1,6 +1,7 @@
 package com.example.accountingproject.config;
 
-import com.accounting.service.SecurityService;
+
+import com.example.accountingproject.service.SecurityService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
