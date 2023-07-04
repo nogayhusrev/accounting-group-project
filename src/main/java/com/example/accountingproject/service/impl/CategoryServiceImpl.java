@@ -64,7 +64,7 @@ public class CategoryServiceImpl implements CategoryService {
     public boolean isTheCategoryEmpty(Category category) {
         return productService.findAll().stream()
                 .filter(productDto -> productDto.getCategory().getDescription().equalsIgnoreCase(category.getDescription()))
-                .count() = 0;
+                .count() == 0;
     }
 
     @Override
