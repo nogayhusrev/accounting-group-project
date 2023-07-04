@@ -6,6 +6,7 @@ import com.example.accountingproject.mapper.MapperUtil;
 import com.example.accountingproject.repository.RoleRepository;
 import com.example.accountingproject.service.RoleService;
 import com.example.accountingproject.service.SecurityService;
+import com.example.accountingproject.service.UserService;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
