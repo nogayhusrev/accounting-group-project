@@ -11,6 +11,7 @@ public interface CrudService<T, ID> {
     void delete(ID id);
     void update(T t, ID id);
     boolean isExist(T t);
+    boolean isExist(T t, ID id);
 
 }
 

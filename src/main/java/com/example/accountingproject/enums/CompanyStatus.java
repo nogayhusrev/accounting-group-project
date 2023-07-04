@@ -1,5 +1,9 @@
 package com.example.accountingproject.enums;
 
+
+import lombok.Getter;
+
+@Getter
 public enum CompanyStatus {
 
     ACTIVE("Active"),

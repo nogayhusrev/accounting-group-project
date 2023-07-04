@@ -81,4 +81,9 @@ public class RoleServiceImpl implements RoleService {
         throw new IllegalStateException("Not Implemented");
 
     }
+
+    @Override
+    public boolean isExist(RoleDto roleDto, Long aLong) {
+        throw new IllegalStateException("Not Implemented");
+    }
 }
