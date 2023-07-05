@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav flex-column">
                         <li class="nav-divider"></li>
-                        <li class="nav-item"  sec:authorize="hasAnyAuthority('Root User')">>
+                        <li class="nav-item"  sec:authorize="hasAnyAuthority('Root User')">
                             <a class="nav-link"
                                href="#"
                                data-toggle="collapse"
@@ -55,7 +55,7 @@
                                     <li class="nav-item" sec:authorize="hasAnyAuthority('Admin')">
                                         <a class="nav-link" th:href="@{/users/list}">User Registration</a></li>
                                     <li class="nav-item" sec:authorize="hasAnyAuthority('Employee', 'Manager')">
-                                        <a class="nav-link" th:href="@{/clientVendor/list}">Client/Vendor Registration</a></li>
+                                        <a class="nav-link" th:href="@{/clientVendors/list}">Client/Vendor Registration</a></li>
 
                                 </ul>
                             </div>
@@ -72,7 +72,7 @@
                             <div id="submenu-3" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item" >
-                                        <a class="nav-link" th:href="@{/category/list}">Category</a></li>
+                                        <a class="nav-link" th:href="@{/categories/list}">Category</a></li>
                                     <li class="nav-item" >
                                         <a class="nav-link" th:href="@{/products/list}">Products</a></li>
                                 </ul>
@@ -90,9 +90,9 @@
                             <div id="submenu-4" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item" >
-                                        <a class="nav-link" th:href="@{/purchaseInvoice/list}">Purchase Invoice</a></li>
+                                        <a class="nav-link" th:href="@{/purchaseInvoices/list}">Purchase Invoice</a></li>
                                     <li class="nav-item" >
-                                        <a class="nav-link" th:href="@{/salesInvoice/list}">Sales Invoice</a></li>
+                                        <a class="nav-link" th:href="@{/salesInvoices/list}">Sales Invoice</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -108,9 +108,9 @@
                             <div id="submenu-5" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item" >
-                                        <a class="nav-link" th:href="@{/report/profitLoss}">Profit/Loss Report</a></li>
+                                        <a class="nav-link" th:href="@{/reports/profitLoss}">Profit/Loss Report</a></li>
                                     <li class="nav-item" >
-                                        <a class="nav-link" th:href="@{/report/stock}">Stock Report</a></li>
+                                        <a class="nav-link" th:href="@{/reports/stock}">Stock Report</a></li>
                                 </ul>
                             </div>
                         </li>

@@ -7,13 +7,10 @@ import com.example.accountingproject.mapper.MapperUtil;
 import com.example.accountingproject.repository.UserRepository;
 import com.example.accountingproject.service.SecurityService;
 import com.example.accountingproject.service.UserService;
-import lombok.AllArgsConstructor;
-import lombok.Setter;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Type;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,13 +24,14 @@ public class UserServiceImpl implements UserService {
     private final SecurityService securityService;
     private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository,@Lazy SecurityService securityService,
+    public UserServiceImpl(UserRepository userRepository, @Lazy SecurityService securityService,
                            MapperUtil mapperUtil, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.securityService = securityService;
         this.mapperUtil = mapperUtil;
         this.passwordEncoder = passwordEncoder;
     }
+
     @Override
     public UserDto findById(Long userId) {
         return mapperUtil.convert(userRepository.findUserById(userId), new UserDto());
@@ -93,7 +91,7 @@ public class UserServiceImpl implements UserService {
     public void update(UserDto userDto, Long userId) {
         User user = userRepository.findUserById(userId);
         userDto.setId(user.getId());
-        userRepository.save(mapperUtil.convert(user,new User()));
+        userRepository.save(mapperUtil.convert(user, new User()));
     }
 
     @Override
