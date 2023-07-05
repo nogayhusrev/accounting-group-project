@@ -9,7 +9,7 @@ import com.example.accountingproject.service.common.CrudService;
 import java.math.BigDecimal;
 import java.util.List;
 
-public interface InvoiceService extends CrudService<InvoiceDto, Long> {
+public interface InvoiceService extends CrudService<InvoiceDto,Long> {
 
     List<InvoiceDto> findPurchaseInvoices();
 
@@ -38,4 +38,5 @@ public interface InvoiceService extends CrudService<InvoiceDto, Long> {
     BigDecimal getTotalTaxOfInvoice(Long invoiceId);
 
     BigDecimal getProfitLossOfInvoice(Long invoiceId);
+
 }

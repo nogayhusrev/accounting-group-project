@@ -1,5 +1,8 @@
 package com.example.accountingproject.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum InvoiceType {
     PURCHASE("Purchase"),SALES("Sales");
 

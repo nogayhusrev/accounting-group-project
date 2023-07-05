@@ -1,5 +1,8 @@
 package com.example.accountingproject.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum ClientVendorType {
     CLIENT("Client"),
     VENDOR("Vendor");
