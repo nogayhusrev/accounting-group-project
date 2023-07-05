@@ -2,9 +2,12 @@ package com.example.accountingproject.service.impl;
 
 
 import com.example.accountingproject.dto.ClientVendorDto;
+import com.example.accountingproject.entity.ClientVendor;
+import com.example.accountingproject.entity.Company;
 import com.example.accountingproject.mapper.MapperUtil;
 import com.example.accountingproject.repository.ClientVendorRepository;
 import com.example.accountingproject.service.ClientVendorService;
+import com.example.accountingproject.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -74,6 +77,13 @@ public class ClientVendorServiceImpl implements ClientVendorService {
 
     @Override
     public boolean isExist(ClientVendorDto clientVendorDto) {
+        return findAll().stream()
+                .filter(clientVendor -> clientVendor.getClientVendorName().equalsIgnoreCase(clientVendorDto.getClientVendorName()))
+                .count() > 0;
+    }
+
+    @Override
+    public boolean isExist(ClientVendorDto clientVendorDto, Long aLong) {
         return findAll().stream()
                 .filter(clientVendor -> clientVendor.getClientVendorName().equalsIgnoreCase(clientVendorDto.getClientVendorName()))
                 .count() > 0;
