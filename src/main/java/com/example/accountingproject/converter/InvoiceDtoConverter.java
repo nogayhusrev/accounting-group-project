@@ -1,7 +1,7 @@
 package com.example.accountingproject.converter;
 
-import com.accounting.dto.InvoiceDto;
-import com.accounting.service.InvoiceService;
+import com.example.accountingproject.dto.InvoiceDto;
+import com.example.accountingproject.service.InvoiceService;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.core.convert.converter.Converter;
