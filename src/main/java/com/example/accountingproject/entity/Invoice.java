@@ -1,6 +1,7 @@
 package com.example.accountingproject.entity;
 
 
+
 import com.example.accountingproject.enums.InvoiceStatus;
 import com.example.accountingproject.enums.InvoiceType;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "invoices")
 @Where(clause = "is_deleted=false")
-public class Invoice extends BaseEntity{
+public class Invoice extends BaseEntity {
 
     private String invoiceNo;
 
@@ -34,11 +35,9 @@ public class Invoice extends BaseEntity{
 
 
     @ManyToOne
-    @JoinColumn(name = "client_vendor_id")
     private ClientVendor clientVendor;
 
 
     @ManyToOne
-    @JoinColumn(name = "company_id")
     private Company company;
 }
