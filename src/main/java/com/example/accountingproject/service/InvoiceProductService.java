@@ -1,8 +1,10 @@
 package com.example.accountingproject.service;
 
 import com.example.accountingproject.dto.InvoiceProductDto;
+import com.example.accountingproject.entity.Company;
 import com.example.accountingproject.entity.InvoiceProduct;
 import com.example.accountingproject.entity.Product;
+import com.example.accountingproject.enums.InvoiceStatus;
 import com.example.accountingproject.enums.InvoiceType;
 import com.example.accountingproject.service.common.CrudService;
 
@@ -21,5 +23,6 @@ public interface InvoiceProductService extends CrudService<InvoiceProductDto, Lo
 
     List<InvoiceProduct> findInvoiceProductsByInvoiceTypeAndProductRemainingQuantity(InvoiceType type, Product product, Integer remainingQuantity);
     List<InvoiceProduct> findAllInvoiceProductsByProductId(Long id);
+    List<InvoiceProduct> findInvoiceProductsByInvoiceInvoiceStatusAndInvoiceCompanyOrderByIdDesc(InvoiceStatus status, Company company);
 
 }

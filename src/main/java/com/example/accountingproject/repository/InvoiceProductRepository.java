@@ -1,7 +1,9 @@
 package com.example.accountingproject.repository;
 
+import com.example.accountingproject.entity.Company;
 import com.example.accountingproject.entity.InvoiceProduct;
 import com.example.accountingproject.entity.Product;
+import com.example.accountingproject.enums.InvoiceStatus;
 import com.example.accountingproject.enums.InvoiceType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -17,4 +19,6 @@ public interface InvoiceProductRepository extends JpaRepository<InvoiceProduct, 
     List<InvoiceProduct> findInvoiceProductsByInvoiceInvoiceTypeAndProductAndRemainingQuantityNotOrderByIdAsc(InvoiceType type, Product product, Integer remainingQuantity);
 
     List<InvoiceProduct> findAllInvoiceProductByProductId(Long id);
+
+    List<InvoiceProduct> findInvoiceProductsByInvoiceInvoiceStatusAndInvoiceCompanyOrderByIdDesc(InvoiceStatus status, Company company);
 }

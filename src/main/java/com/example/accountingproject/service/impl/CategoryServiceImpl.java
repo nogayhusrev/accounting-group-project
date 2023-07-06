@@ -23,9 +23,13 @@ public class CategoryServiceImpl implements CategoryService {
     private final MapperUtil mapperUtil;
     private final UserService userService;
     private final ProductService productService;
+
     @Override
     public CategoryDto findById(Long categoryId) {
-        return mapperUtil.convert(categoryRepository.findById(categoryId).get(), new CategoryDto());
+        if(categoryRepository.findById(categoryId).isPresent())
+            return mapperUtil.convert(categoryRepository.findById(categoryId).get(), new CategoryDto());
+        else
+            throw new IllegalStateException();
     }
 
     @Override
@@ -64,8 +68,8 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public boolean isTheCategoryEmpty(Category category) {
         return productService.findAll().stream()
-                .filter(productDto -> productDto.getCategory().getDescription().equalsIgnoreCase(category.getDescription()))
-                .count() == 0;
+                .noneMatch(productDto -> productDto.getCategory()
+                        .getDescription().equalsIgnoreCase(category.getDescription()));
     }
 
     @Override
@@ -77,16 +81,15 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public boolean isExist(CategoryDto categoryDto) {
         return findAll().stream()
-                .filter(category -> category.getDescription().equalsIgnoreCase(categoryDto.getDescription()))
-                .count() > 0;
+                .anyMatch(category -> category.getDescription()
+                        .equalsIgnoreCase(categoryDto.getDescription()));
     }
 
     @Override
     public boolean isExist(CategoryDto categoryDto, Long categoryId) {
         return findAll().stream()
                 .filter(category -> category.getDescription().equalsIgnoreCase(categoryDto.getDescription()))
-                .filter(category -> Objects.equals(category.getId(), categoryId))
-                .count() > 0;
+                .anyMatch(category -> Objects.equals(category.getId(), categoryId));
 
     }
 }

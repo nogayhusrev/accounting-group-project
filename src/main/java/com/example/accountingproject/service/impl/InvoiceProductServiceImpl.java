@@ -6,6 +6,7 @@ import com.example.accountingproject.entity.Company;
 import com.example.accountingproject.entity.Invoice;
 import com.example.accountingproject.entity.InvoiceProduct;
 import com.example.accountingproject.entity.Product;
+import com.example.accountingproject.enums.InvoiceStatus;
 import com.example.accountingproject.enums.InvoiceType;
 import com.example.accountingproject.mapper.MapperUtil;
 import com.example.accountingproject.repository.InvoiceProductRepository;
@@ -108,6 +109,11 @@ public class InvoiceProductServiceImpl implements InvoiceProductService {
     @Override
     public List<InvoiceProduct> findAllInvoiceProductsByProductId(Long id) {
         return invoiceProductRepository.findAllInvoiceProductByProductId(id);
+    }
+
+    @Override
+    public List<InvoiceProduct> findInvoiceProductsByInvoiceInvoiceStatusAndInvoiceCompanyOrderByIdDesc(InvoiceStatus status, Company company) {
+        return invoiceProductRepository.findInvoiceProductsByInvoiceInvoiceStatusAndInvoiceCompanyOrderByIdDesc(status,company);
     }
 
     @Override
