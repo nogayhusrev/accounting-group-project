@@ -44,6 +44,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void save(ProductDto productDto) {
         Product product = mapperUtil.convert(productDto, new Product());
+        product.setIsDeleted(false);
         product.setQuantityInStock(0);
         productRepository.save(product);
 

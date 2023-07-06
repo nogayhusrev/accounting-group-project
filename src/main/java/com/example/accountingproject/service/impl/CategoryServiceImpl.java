@@ -47,6 +47,7 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = mapperUtil.convert(categoryDto, new Category());
         Company company = mapperUtil.convert(userService.getCurrentUser().getCompany(), new Company());
         category.setCompany(company);
+        category.setIsDeleted(false);
         categoryRepository.save(category);
     }
 
