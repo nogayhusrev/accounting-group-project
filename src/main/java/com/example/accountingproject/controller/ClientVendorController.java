@@ -28,7 +28,7 @@ public class ClientVendorController {
     //list
     @GetMapping("/list")
     public String list(Model model) {
-        model.addAttribute("clientsVendors", clientsVendorsService.findAll());
+        model.addAttribute("clientVendors", clientsVendorsService.findAll());
 
         return "clientVendor/clientVendor-list";
     }
