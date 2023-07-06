@@ -1,13 +1,14 @@
 package com.example.accountingproject.controller;
 
 
-import com.accounting.dto.InvoiceDto;
-import com.accounting.dto.InvoiceProductDto;
-import com.accounting.enums.InvoiceType;
-import com.accounting.service.ClientVendorService;
-import com.accounting.service.InvoiceProductService;
-import com.accounting.service.InvoiceService;
-import com.accounting.service.ProductService;
+
+import com.example.accountingproject.dto.InvoiceDto;
+import com.example.accountingproject.dto.InvoiceProductDto;
+import com.example.accountingproject.enums.InvoiceType;
+import com.example.accountingproject.service.ClientVendorService;
+import com.example.accountingproject.service.InvoiceProductService;
+import com.example.accountingproject.service.InvoiceService;
+import com.example.accountingproject.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
